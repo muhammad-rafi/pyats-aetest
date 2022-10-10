@@ -1,0 +1,79 @@
+testbed:
+  name: CML Testbed
+  credentials: # Dict of credentials common to the testbed 
+    default:
+      username: "%ENV{PYATS_USERNAME}"
+      password: "%ENV{PYATS_PASSWORD}"
+    enable:
+      password: "%ENV{PYATS_ENABLE_PASSWORD}"
+
+devices:
+
+  cml-core-rtr01:
+   alias: cml-core-rtr01
+    os: iosxr
+    type: router
+    platform: xrv-9k
+    connections:
+      cli:
+        ip: 10.100.5.203
+        protocol: ssh
+
+  cml-core-rtr02:
+   alias: cml-core-rtr02
+    os: iosxr
+    type: router
+    platform: xrv-9k
+    connections:
+      cli:
+        ip: 10.100.5.204
+        protocol: ssh
+
+  cml-dist-rtr01:
+   alias: cml-dist-rtr01
+    os: iosxe
+    type: router
+    platform: cat8000v
+    connections:
+      cli:
+        ip: 10.100.5.205
+        protocol: ssh
+
+  cml-dist-rtr02:
+   alias: cml-dist-rtr02
+    os: iosxe
+    type: router
+    platform: csr1000v
+    connections:
+      cli:
+        ip: 10.100.5.206
+        protocol: ssh
+
+  cml-dist-sw01:
+    alias: cml-dist-sw01
+    os: nxos
+    type: switch
+    platform: n9kv
+    connections:
+      cli:
+        ip: 10.100.5.207
+        protocol: ssh
+
+  cml-dist-sw02:
+    alias: cml-dist-sw02
+    os: nxos
+    type: switch
+    platform: n9kv
+    connections:
+      cli:
+        ip: 10.100.5.207
+        protocol: ssh
+
+topology:
+  cml-core-rtr01:
+  cml-core-rtr02:
+  cml-dist-rtr01:
+  cml-dist-rtr02:
+  cml-dist-sw01:
+  cml-dist-sw02:
+

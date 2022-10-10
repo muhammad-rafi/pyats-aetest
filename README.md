@@ -1,11 +1,35 @@
-## pyATS for Network Testing with AEtest (Automation Easy test)
+## pyATS for Network Testing with AEtest (Automation Easy testing)
 
-pyATS (Python Automated Test Systems) for Network Testing with AEtest (Automation Easy testing)
+pyATS - Python Automated Test Systems is a Python3 based test automation infrastructure. It is developed as the next-generation Cisco mainstream automation infrastructure, is compatible to existing tooling & infrastructure, and is officially endorsed by Cisco executive team. it was later available to the general public starting late 2017 through Cisco DevNet. Visit the pyATS home page at _https://developer.cisco.com/site/pyats/_.
 
+pyATS is an end-to-end DevOps automation ecosystem. Agnostic by design, pyATS enable network engineers to automate their day-to-day DevOps activities, perform stateful validation of their device operational status, build a safety-net of scalable, data-driven and reusable tests around their network, and visualize everything in a modern, easy to use dashboard.
 
-pyATS: the core framework
-pyATS Library: the pyATS standard library (formerly “Genie”)
-XPRESSO: the pyATS Web UI Dashboard
+Originally developed for internal Cisco engineering use, pyATS is at the
+core of Cisco's Test Automation Solution.
+
+Here is main components of pyATS echosystem
+
+- pyATS: the core framework (Pythonic and Object Oriented)
+- pyATS Library: the pyATS vendor agnostic standard library (formerly “Genie”)
+- XPRESSO: the pyATS Web UI Dashboard
+
+**Reference:** 
+
+_https://developer.cisco.com/docs/pyats/#!introduction/cisco-pyats-network-test--automation-solution_
+
+_https://pubhub.devnetcloud.com/media/pyats/docs/overview/index.html_
+
+AEtest (Automation Easy Testing) is the standard test engineering automation harness. It offers a simple and straight-forward way for users to define, execute and debug testcases and testscripts, serving as a basis for other testscript templates & engines.
+
+AEtest is available as a standard component (aetest) in pyATS in an effort to standardize the definition and execution of testcases & testscripts. Implemented fully in Python, pyATS aetest is designed to leverage the full benefits of Python language’s object-oriented capabilities.
+
+In aetest, testscripts are naturally broken down into TestContainers and TestFunctions, two-level segments defined in Object Model. For example:
+
+CommonSetup: subsection
+
+Testcase: setup/test/cleanup
+
+**Reference:** _https://pubhub.devnetcloud.com/media/pyats/docs/aetest/introduction.html_
 
 ### Supported version of Python for pyATS
 
@@ -88,7 +112,7 @@ You can also check if you have latest version of pyats installed. To run the ful
 Besides installing the pyATS via Python pip, you can also use pre-built docker image which includes both pyATS and the pyATS Library. You can find the image and instructions at https://hub.docker.com/r/ciscotestautomation/pyats.
 
 ```s
-bash$ docker pull ciscotestautomation/pyats:latest
+$ docker pull ciscotestautomation/pyats:latest
 ```
 and run the container in shell mode 
 ```s
@@ -105,7 +129,7 @@ $ docker run -itd --hostname pyats-docker --name pyats-docker \
     ciscotestautomation/pyats:latest
 ```
 
-You may notice that, I have bind the local host system current working directory to the pyats docker root home directory and map the 48000 port. You can customise these options as you like. 
+You may notice that, I bind the local host system current working directory to the pyats docker root home directory and map the 48000 port. You can customise these options as you like. 
 
 where; 
 - -it: interactive tty 
@@ -192,7 +216,7 @@ There you go! you now have working pyats docker container running, you can also 
 
 ### pyATS Example scripts 
 
-If you want to get started with pyATS, you can download or clone the DevNet community examples from the links below; 
+If you want to get started with pyATS, you can download or clone the pyATS example scripts from the links below; 
 
 `git clone https://github.com/CiscoTestAutomation/examples`
 
@@ -408,9 +432,11 @@ Now you can browse to this url `http://localhost:48000/` on your local host syst
 
 Note: make sure when you finish analysing the logs, close the UI, otherwise you may get the `[Errno 98] Address already in use` erros on the terminal, when you try to access the logs again. 
 
-
-
 ### References
+
+[pyATS (Python Automation Test System) PyPI](https://pypi.org/project/pyats/)
+
+[pyATS ecosystem](https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/intro/introduction.html)
 
 [Cisco pyATS: Network Test & Automation Solution](https://developer.cisco.com/docs/pyats/#!introduction/cisco-pyats-network-test--automation-solution)
 
@@ -418,14 +444,20 @@ Note: make sure when you finish analysing the logs, close the UI, otherwise you 
 
 [pyATS Command Line Tools](https://pubhub.devnetcloud.com/media/pyats/docs/cli/index.html)
 
-[AEtest - Test Infrastructure](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/index.html)
-
-[Cisco Test Automation Platform with pyATS & Genie](https://github.com/CiscoTestAutomation)
+[ipyats](https://github.com/kecorbin/ipyats)
 
 [pyATS Docker Hub Link](https://hub.docker.com/r/ciscotestautomation/pyats)
 
 [pyATS Dockerfile and Scripts](https://github.com/CiscoTestAutomation/pyats-docker)
 
+[Testbed & Topology Information](https://pubhub.devnetcloud.com/media/pyats/docs/topology/index.html)
+
+[Cisco Test Automation Platform with pyATS & Genie](https://github.com/CiscoTestAutomation)
+
+[AEtest - Test Infrastructure](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/index.html)
+
+[AEtest Examples](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/examples.html)
+
 [pyATS Example Scripts](https://github.com/CiscoTestAutomation/examples)
 
-
+[Network test and validation with pyATS](https://github.com/sttrayno/pyATS-Lab-Guide)

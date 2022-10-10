@@ -112,9 +112,9 @@ where;
 - -d: detached mode 
 - --hostname: hostname of the docker container
 - --name: name of the docker container
-- -v: docker bind volume, <local-source-path>:<container-targer-path>
-- -p: port number, <host-port>:<container-port>
-- ciscotestautomation/pyats:latest, <container-image>:<tag>
+- -v: docker bind volume, \<local-source-path>\:\<container-targer-path>\
+- -p: port number, \<host-port>\:\<container-port>\
+- ciscotestautomation/pyats:latest, \<container-image>\:\<tag>\
 
 Since we created a docker container with `48000:48000` port mapping, so to view the pyats logs on the host system, we need to run the following to command to view the logs. 
 
@@ -412,28 +412,20 @@ Note: make sure when you finish analysing the logs, close the UI, otherwise you 
 
 ### References
 
-Cisco pyATS: Network Test & Automation Solution
-https://developer.cisco.com/docs/pyats/#!introduction/cisco-pyats-network-test--automation-solution
+[Cisco pyATS: Network Test & Automation Solution](https://developer.cisco.com/docs/pyats/#!introduction/cisco-pyats-network-test--automation-solution)
 
-Getting Started with pyATS
-https://developer.cisco.com/docs/pyats-getting-started/
+[Getting Started with pyATS](https://developer.cisco.com/docs/pyats-getting-started/)
 
-pyATS Command Line Tools
-https://pubhub.devnetcloud.com/media/pyats/docs/cli/index.html
+[pyATS Command Line Tools](https://pubhub.devnetcloud.com/media/pyats/docs/cli/index.html)
 
-AEtest - Test Infrastructure
-https://pubhub.devnetcloud.com/media/pyats/docs/aetest/index.html
+[AEtest - Test Infrastructure](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/index.html)
 
-Cisco Test Automation Platform with pyATS & Genie
-https://github.com/CiscoTestAutomation
+[Cisco Test Automation Platform with pyATS & Genie](https://github.com/CiscoTestAutomation)
 
-pyATS Docker hub link
-https://hub.docker.com/r/ciscotestautomation/pyats
+[pyATS Docker Hub Link](https://hub.docker.com/r/ciscotestautomation/pyats)
 
-pyATS Dockerfile and Scripts
-https://github.com/CiscoTestAutomation/pyats-docker
+[pyATS Dockerfile and Scripts](https://github.com/CiscoTestAutomation/pyats-docker)
 
-pyATS Example Scripts
-https://github.com/CiscoTestAutomation/examples
+[pyATS Example Scripts](https://github.com/CiscoTestAutomation/examples)
 
 

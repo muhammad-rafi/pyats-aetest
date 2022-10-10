@@ -95,7 +95,7 @@ and run the container in shell mode
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 ```
 
-Or you can pull and run a container in one command, please note I am using `latest` tag to run a latest version of pyats container, however you can run any specific version by defining a tag e.g. `21.9-full` image tag.
+Or you can pull and run a container in one command, please note I am using `latest` tag to run a latest version of pyats container, however you can run any specific version by defining a tag e.g. `21.9-full` image tag. I have also customised other paramters. 
  
 
 ```bash
@@ -117,9 +117,8 @@ where;
 - ciscotestautomation/pyats:latest, <container-image>:<tag>
 
 Since we created a docker container with `48000:48000` port mapping, so to view the pyats logs on the host system, we need to run the following to command to view the logs. 
-```bash
-$ pyats logs view --host localhost --port 48000 --no-browser --latest 
-```
+
+`pyats logs view --host 0.0.0.0 --port 48000 --no-browser --latest`
 
 Creating pyats-docker container
 ```bash
@@ -162,7 +161,31 @@ root@pyats-docker:/pyats# source bin/activate
 Check the pyats version 
 
 ```bash
+(pyats) root@pyats-docker:~# pyats version check
+You are currently running pyATS version: 22.9
+Python: 3.9.12 [64bit]
 
+  Package              Version
+  -------------------- -------
+  pyats                22.9   
+  pyats.aereport       22.9   
+  pyats.aetest         22.9   
+  pyats.async          22.9   
+  pyats.connections    22.9   
+  pyats.datastructures 22.9   
+  pyats.easypy         22.9   
+  pyats.kleenex        22.9   
+  pyats.log            22.9   
+  pyats.reporter       22.9   
+  pyats.results        22.9   
+  pyats.tcl            22.9   
+  pyats.topology       22.9   
+  pyats.utils          22.9   
+  unicon               22.9   
+  unicon.plugins       22.9   
+
+
+(pyats) root@pyats-docker:~# 
 ```
 
 There you go! you now have working pyats docker container running, you can also clone pyats example and run the job. 

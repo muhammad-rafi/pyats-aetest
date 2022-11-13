@@ -432,6 +432,40 @@ Now you can browse to this url `http://localhost:48000/` on your local host syst
 
 Note: make sure when you finish analysing the logs, close the UI, otherwise you may get the `[Errno 98] Address already in use` erros on the terminal, when you try to access the logs again. 
 
+### Issues
+
+If you keep having an issue "Host key verification failed". Add custom key parameter as configured below;
+```yaml
+devices:
+  cml-dist-rtr01:
+    connections:
+      cli:
+        ip: 10.100.5.205
+        protocol: ssh
+    credentials:
+      default:
+        password: admin
+        username: admin
+    custom:
+      ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 
+```
+
+Or add this in the global credentails 
+```yaml
+testbed:
+  credentials:
+    default:
+      username: admin
+      password: admin
+    enable:
+      password: '%ASK{}'
+  custom:
+    ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+```
+
+https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html
+
+
 ### References
 
 [pyATS (Python Automation Test System) PyPI](https://pypi.org/project/pyats/)
@@ -450,9 +484,13 @@ Note: make sure when you finish analysing the logs, close the UI, otherwise you 
 
 [pyATS Dockerfile and Scripts](https://github.com/CiscoTestAutomation/pyats-docker)
 
-[Testbed & Topology Information](https://pubhub.devnetcloud.com/media/pyats/docs/topology/index.html)
+[Testbed File Schema](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html#production-yaml-schema)
 
-[Cisco Test Automation Platform with pyATS & Genie](https://github.com/CiscoTestAutomation)
+[Datafile Schema](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/datafile.html)
+
+[Connection Through Proxies](https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html)
+
+[Testbed & Topology Information](https://pubhub.devnetcloud.com/media/pyats/docs/topology/index.html)
 
 [AEtest - Test Infrastructure](https://pubhub.devnetcloud.com/media/pyats/docs/aetest/index.html)
 
@@ -460,6 +498,11 @@ Note: make sure when you finish analysing the logs, close the UI, otherwise you 
 
 [pyATS Example Scripts](https://github.com/CiscoTestAutomation/examples)
 
-[Network test and validation with pyATS](https://github.com/sttrayno/pyATS-Lab-Guide)
+[Talk: Introduction to Writing Network Tests with pyATS](https://us.pycon.org/2020/schedule/presentation/134/)
 
-[intro-network-tests by Hank Preston](https://github.com/hpreston/intro-network-tests)
+[Test-Driven Automation with pyATS by John Capobianco](https://learningnetwork.cisco.com/s/blogs/a0D6e00000sR7Q6EAK/testdriven-automation-with-pyats)
+
+[How to install Genie](https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/genie.html)
+
+[XPRESSO](https://developer.cisco.com/docs/xpresso/#!wecome/img-srcimgxpresso-top-nav-smallpng-welcome-to-xpresso)
+

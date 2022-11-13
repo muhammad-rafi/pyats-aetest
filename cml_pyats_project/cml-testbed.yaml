@@ -1,33 +1,69 @@
 testbed:
-  name: CML Testbed
-  credentials: # Dict of credentials common to the testbed 
+  name: CML Network Automation Testbed
+  credentials:
     default:
+      # username: "admin"
+      # password: "C1sco123"
       username: "%ENV{PYATS_USERNAME}"
       password: "%ENV{PYATS_PASSWORD}"
-    enable:
-      password: "%ENV{PYATS_ENABLE_PASSWORD}"
+    # enable:
+    #   password: "%ENV{PYATS_ENABLE_PASSWORD}"
+  custom:
+    ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 
 devices:
+
+  cml-internet-rtr01:
+    alias: cml-internet-rtr01
+    os: ios
+    type: router
+    platform: iosv
+    connections:
+      cli:
+        ip: 10.100.5.201
+        protocol: ssh
+
+  cml-edge-sw01:
+    alias: cml-edge-sw01
+    os: ios
+    type: switch
+    platform: iosv
+    connections:
+      cli:
+        ip: 10.100.5.202
+        protocol: ssh
 
   cml-core-rtr01:
     alias: cml-core-rtr01
     os: iosxr
     type: router
-    platform: xrv-9k
+    platform: iosxrv9k
     connections:
       cli:
         ip: 10.100.5.203
         protocol: ssh
+    credentials:
+      default:
+        username: "%ENV{PYATS_USERNAME}"
+        password: "%ENV{PYATS_PASSWORD}"
+    custom:
+      ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 
   cml-core-rtr02:
     alias: cml-core-rtr02
     os: iosxr
     type: router
-    platform: xrv-9k
+    platform: iosxrv9k
     connections:
       cli:
         ip: 10.100.5.204
         protocol: ssh
+    credentials:
+      default:
+        username: "%ENV{PYATS_USERNAME}"
+        password: "%ENV{PYATS_PASSWORD}"
+    custom:
+      ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 
   cml-dist-rtr01:
     alias: cml-dist-rtr01
@@ -53,7 +89,7 @@ devices:
     alias: cml-dist-sw01
     os: nxos
     type: switch
-    platform: n9kv
+    platform: nxosv
     connections:
       cli:
         ip: 10.100.5.207
@@ -63,17 +99,17 @@ devices:
     alias: cml-dist-sw02
     os: nxos
     type: switch
-    platform: n9kv
+    platform: nxosv
     connections:
       cli:
         ip: 10.100.5.207
         protocol: ssh
 
-topology:
-  cml-core-rtr01:
-  cml-core-rtr02:
-  cml-dist-rtr01:
-  cml-dist-rtr02:
-  cml-dist-sw01:
-  cml-dist-sw02:
 
+# topology:
+#   cml-core-rtr01:
+#   cml-core-rtr02:
+#   cml-dist-rtr01:
+#   cml-dist-rtr02:
+#   cml-dist-sw01:
+#   cml-dist-sw02:

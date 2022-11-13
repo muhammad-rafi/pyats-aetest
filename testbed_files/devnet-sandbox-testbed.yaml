@@ -14,7 +14,9 @@ devices: # Dict of testbed device (name:Device)
   csr1000v-1: # Device hostname and it must be extact match
     alias: csr1000v # Alias for the device, incase host name changes. it defaults to device name  
     os: iosxe # Operating system for the device e.g: iosxe, nxos, iosxr etc.
-    type: CSR1000v # Type of the device e.g: 
+    type: router # Type of the device e.g: 
+    series: CSR1000v # The 'series' key has been deprecated, it is replaced by the 'platform' key.
+    platform: CSR1000v
     tacacs: # Dict of TACACS information common to the testbed 
         username: developer
     passwords:

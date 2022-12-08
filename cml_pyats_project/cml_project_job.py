@@ -1,6 +1,8 @@
 '''
-my_test_project_job.py
+cml_project_job.py
 
+To run with pyats run job 
+pyats run job cml_project_job.py --testbed-file cml-testbed.yaml
 '''
 # see https://pubhub.devnetcloud.com/media/pyats/docs/easypy/jobfile.html
 # for how job files work
@@ -23,6 +25,5 @@ def main(runtime):
     '''job file entrypoint'''
     
     # run script
-    run(testscript= os.path.join(SCRIPT_PATH, 
-                                 'my_test_project.py'),
+    run(testscript= os.path.join(SCRIPT_PATH, 'cml_project_test.py'),
         runtime = runtime)

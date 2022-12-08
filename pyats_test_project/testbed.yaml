@@ -1,0 +1,44 @@
+testbed:
+  name: testbed for python sctipts
+  
+devices:
+
+  # Cisco IOSXE Always-on Device
+  csr1000v-1:
+    alias: csr1000v-1
+    os: iosxe
+    type: router
+    platform: csr1000v
+    credentials:
+      default:
+        username: developer
+        password: C1sco12345
+    connections:
+      vty:
+        protocol: ssh
+        ip: sandbox-iosxe-latest-1.cisco.com
+        settings: 
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0 
+
+  # Cisco NXOS Always-on Device
+  sbx-n9kv-ao:
+    alias: nexus-9kv
+    os: nxos
+    type: Nexus9000v
+    # tacacs:
+    #     username: admin
+    # passwords:
+    #     tacacs: Admin_1234!
+    credentials:
+      default:
+        username: admin
+        password: Admin_1234!
+    connections:
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: sandbox-nxos-1.cisco.com
+        protocol: ssh
+        port: 22
+

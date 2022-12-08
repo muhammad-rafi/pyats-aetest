@@ -1,9 +1,11 @@
 
-pyats create testbed interactive --output testbed.yaml --encode-password
-pyats validate testbed testbed.yaml 
+
 
 pyats parse "show version" --testbed-file cml-testbed.yaml --devices cml-dist-rtr01
+pyats parse "show ip route bgp" --testbed-file cml-testbed.yaml --devices cml-dist-rtr01
+
 genie parse "show version" --testbed-file cml-testbed.yaml --devices cml-dist-rtr01
+
 
 pyats parse "show version" --testbed-file cml-testbed.yaml --devices cml-dist-rtr01 --output output_cml-dist-rtr01
 
@@ -12,12 +14,22 @@ device.connect(learn_hostname=True)
 
 pyats learn all --testbed-file mock.yaml --devices uut --output output_folder
 
-
-# Creating a project with two tests 'connectivity_checks' and 'bgp_neighbor' with no datafile.
+##### Creating a project with two tests 'connectivity_checks' and 'bgp_neighbor' with no datafile. This command will create a boiler plate for pyATS AEtests.
+```s
 pyats create project --name my_test_project --testcases connectivity_checks bgp_neighbor --no-datafile
+```
 
-
+##### To create a testbed file from the excel sheet 'devices.xls' exists in the current directory
+```s 
 pyats create testbed file --path devices.xls --output testbed.yaml
+```
+
+##### To create a tesbed file interactively with encoded passwords
+```s
+pyats create testbed interactive --output testbed.yaml --encode-password
+```
+
+pyats validate testbed testbed.yaml 
 
 pyats shell --testbed-file testbed.yaml
 
@@ -34,7 +46,7 @@ Python 3.9.10 (main, Jan 15 2022, 18:17:56)
 In [1]: 
 ```
 
-device = testbed.devices['sandbox-iosxe-latest-1.cisco.com']
+device = testbed.devices['csr1000v-1']
 device.connect()
 device.disconnect()
 
@@ -118,12 +130,25 @@ Get the BGP summay
 INFO:genie.libs.sdk.apis.iosxe.bgp.get:Command has not returned any results
 {}
 >>> 
+Ping Parser
+>>> device.api.ping(address='8.8.8.8', source='loopback100') 
+{'ping': {'repeat': 5, 'data_bytes': 100, 'address': '8.8.8.8', 'timeout_secs': 2, 'source': '172.16.100.1', 'result_per_line': ['.....'], 'statistics': {'success_rate_percent': 0.0, 'received': 0, 'send': 5}}}
+>>>
+>>> output = device.execute("ping 8.8.8.8 source loopback100")
+>>> device.api.ping(address='8.8.8.8', output=output) 
+{'ping': {'repeat': 5, 'data_bytes': 100, 'address': '8.8.8.8', 'timeout_secs': 2, 'source': '172.16.100.1', 'result_per_line': ['.....'], 'statistics': {'success_rate_percent': 0.0, 'received': 0, 'send': 5}}}
+>>> 
+
 
 
 pyats run job jobfile.py --testbed-file "https://<url>/testbed.yaml"
 
+pyats run job ./pyATS_Examples/source-route/job/source_route_job.py --testbed-file ./default_testbed.yaml --configuration ./pyATS_Examples/source-route/easypy_config.yaml --webex-token NmU0O--webex-room Y2lzY29zcGFy 
 
 
+Default location for pyats log files
+~/.pyats/archive
+/tmp/
 
 
 [Creating Testbed YAML File](https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/quickstart/manageconnections.html#creating-testbed-yaml-file)

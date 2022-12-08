@@ -11,25 +11,25 @@ testbed:
 
 devices:
 
-  csr1000v-1:
-    alias: csr1000v-1
-    os: iosxe
-    type: router
-    platform: csr1000v
-    credentials:
-      default:
-        username: developer
-        password: C1sco12345
-    connections:
-      vty:
-        protocol: ssh
-        ip: sandbox-iosxe-latest-1.cisco.com
-        settings: 
-          GRACEFUL_DISCONNECT_WAIT_SEC: 0
-          POST_DISCONNECT_WAIT_SEC: 0 
-    custom:
-      # ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
-      ssh_options: "-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -oKexAlgorithms=+diffie-hellman-group1-sha1"
+  # csr1000v-1:
+  #   alias: csr1000v-1
+  #   os: iosxe
+  #   type: router
+  #   platform: csr1000v
+  #   credentials:
+  #     default:
+  #       username: developer
+  #       password: C1sco12345
+  #   connections:
+  #     vty:
+  #       protocol: ssh
+  #       ip: sandbox-iosxe-latest-1.cisco.com
+  #       settings: 
+  #         GRACEFUL_DISCONNECT_WAIT_SEC: 0
+  #         POST_DISCONNECT_WAIT_SEC: 0 
+  #   custom:
+  #     # ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+  #     ssh_options: "-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -oKexAlgorithms=+diffie-hellman-group1-sha1"
 
 
   cml-dist-rtr01:

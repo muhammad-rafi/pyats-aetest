@@ -506,3 +506,7 @@ https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html
 
 [XPRESSO](https://developer.cisco.com/docs/xpresso/#!wecome/img-srcimgxpresso-top-nav-smallpng-welcome-to-xpresso)
 
+#### YouTube Vidoe References
+
+[Talk: Hank Preston - Introduction to Writing Network Tests with pyATS](https://www.youtube.com/watch?v=tFeVdazq0O0)
+

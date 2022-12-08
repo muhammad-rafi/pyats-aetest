@@ -1,0 +1,25 @@
+# example testbed.yaml file for NSO CLI
+devices:
+  ncs:
+    os: nso
+    credentials:
+      default:
+          username: admin
+          password: password
+    connections:
+      defaults:
+        class: unicon.Unicon
+        via: cli
+      con:
+        command: ncs_cli -C
+      cli:
+        credentials:
+          nso:
+              username: admin
+              password: cisco1234
+        login_creds: nso
+        protocol: ssh
+        ip: 127.0.0.1
+        port: 2024 
+
+Reference: https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/connection.html

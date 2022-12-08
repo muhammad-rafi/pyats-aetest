@@ -1,0 +1,96 @@
+
+2022-12-05 03:21:38,198: %UNICON-INFO: +++ sbx-n9kv-ao logfile ./logs/sbx-n9kv-ao-2022-12-05-03:21:38.log +++
+
+2022-12-05 03:21:38,199: %UNICON-INFO: +++ Unicon plugin nxos (unicon.plugins.nxos) +++
+
+Welcome to the DevNet Always On Sandbox for Open NX-OS
+
+This is a shared sandbox available for anyone to use to
+test APIs, explore features, and test scripts.  Please
+keep this in mind as you use it, and respect others use.
+
+The following programmability features are already enabled:
+  - NX-API
+  - NETCONF, RESTCONF, gRPC
+  - Native NX-OS and OpenConfig YANG Models
+
+Thanks for stopping by.
+
+
+2022-12-05 03:21:39,389: %UNICON-INFO: +++ connection to spawn: ssh -l admin 131.226.217.151 -p 22, id: 4576338128 +++
+
+2022-12-05 03:21:39,390: %UNICON-INFO: connection to sbx-n9kv-ao
+(admin@131.226.217.151) Password: 
+
+Cisco NX-OS Software
+Copyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.
+Nexus 9000v software ("Nexus 9000v Software") and related documentation,
+files or other reference materials ("Documentation") are
+the proprietary property and confidential information of Cisco
+Systems, Inc. ("Cisco") and are protected, without limitation,
+pursuant to United States and International copyright and trademark
+laws in the applicable jurisdiction which provide civil and criminal
+penalties for copying or distribution without Cisco's authorization.
+
+Any use or disclosure, in whole or in part, of the Nexus 9000v Software
+or Documentation to any third party for any purposes is expressly
+prohibited except as otherwise authorized by Cisco in writing.
+The copyrights to certain works contained herein are owned by other
+third parties and are used and distributed under license. Some parts
+of this software may be covered under the GNU Public License or the
+GNU Lesser General Public License. A copy of each such license is
+available at
+http://www.gnu.org/licenses/gpl.html and
+http://www.gnu.org/licenses/lgpl.html
+***************************************************************************
+*  Nexus 9000v is strictly limited to use for evaluation, demonstration   *
+*  and NX-OS education. Any use or disclosure, in whole or in part of     *
+*  the Nexus 9000v Software or Documentation to any third party for any   *
+*  purposes is expressly prohibited except as otherwise authorized by     *
+*  Cisco in writing.                                                      *
+***************************************************************************
+sbx-n9kv-ao# 
+
+2022-12-05 03:21:40,929: %UNICON-INFO: +++ initializing handle +++
+
+2022-12-05 03:21:41,084: %UNICON-INFO: +++ sbx-n9kv-ao with via 'console': executing command 'term length 0' +++
+term length 0
+sbx-n9kv-ao# 
+
+2022-12-05 03:21:41,464: %UNICON-INFO: +++ sbx-n9kv-ao with via 'console': executing command 'term width 511' +++
+term width 511
+sbx-n9kv-ao# 
+
+2022-12-05 03:21:41,879: %UNICON-INFO: +++ sbx-n9kv-ao with via 'console': executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+sbx-n9kv-ao# 
+
+2022-12-05 03:21:42,107: %UNICON-INFO: +++ sbx-n9kv-ao with via 'console': configure +++
+config term
+Enter configuration commands, one per line. End with CNTL/Z.
+sbx-n9kv-ao(config)# no logging console
+sbx-n9kv-ao(config)# line console
+sbx-n9kv-ao(config-console)# exec-timeout 0
+sbx-n9kv-ao(config-console)# line vty
+sbx-n9kv-ao(config-line)# exec-timeout 0
+sbx-n9kv-ao(config-line)# terminal width 511
+sbx-n9kv-ao(config-line)# end
+sbx-n9kv-ao# 
+
+2022-12-05 03:21:58,437: %UNICON-INFO: +++ sbx-n9kv-ao with via 'console': ping +++
+ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto 8.8.8.8 64 chars, No route to host
+Request 0 timed out
+ping: sendto 8.8.8.8 64 chars, No route to host
+Request 1 timed out
+ping: sendto 8.8.8.8 64 chars, No route to host
+Request 2 timed out
+ping: sendto 8.8.8.8 64 chars, No route to host
+Request 3 timed out
+ping: sendto 8.8.8.8 64 chars, No route to host
+Request 4 timed out
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 0 packets received, 100.00% packet loss
+sbx-n9kv-ao# 
